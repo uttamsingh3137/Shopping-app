@@ -1,0 +1,120 @@
+.checkout-page {
+  max-width: 1100px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.checkout-items {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.checkout-items h2 {
+  margin-bottom: 20px;
+}
+
+.checkout-item {
+  display: flex;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.checkout-item:last-child {
+  border-bottom: none;
+}
+
+.checkout-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.checkout-info {
+  flex: 1;
+}
+
+.checkout-info h4 {
+  font-size: 15px;
+}
+
+.checkout-price {
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.qty-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  cursor: pointer;
+}
+
+.qty-btn:disabled {
+  opacity: 0.4;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 12px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+/* 🔥 SUMMARY BOX (DIFFERENCE MAKER) */
+.order-summary {
+  background: #f9fafb;
+  padding: 24px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  height: fit-content;
+}
+
+.order-summary h3 {
+  margin-bottom: 16px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.summary-total {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 14px;
+}
+
+.place-order-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.place-order-btn:hover {
+  background: #1d4ed8;
+}
