@@ -1,0 +1,73 @@
+.order-success-container {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.success-card {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.checkmark {
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  background: #22c55e;
+  color: white;
+  font-size: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.delivery-text {
+  margin: 10px 0 20px;
+  color: #555;
+}
+
+.ordered-items {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.ordered-item {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.ordered-item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.ordered-item p {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.ordered-item span {
+  font-size: 12px;
+  color: #666;
+}
+
+.success-card button {
+  margin-top: 10px;
+  padding: 12px 22px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}

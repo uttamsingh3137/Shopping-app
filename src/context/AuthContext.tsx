@@ -7,12 +7,13 @@ import {
   getUsers,
   saveUsers,
 } from "../utils/authStorage";
+import { hashPassword } from "../utils/hash";
 
 interface AuthContextType {
   user: User | null;
   isAuthenticated: boolean;
-  login: (email: string, password: string) => boolean;
-  signup: (email: string, password: string) => boolean;
+  login: (email: string, password: string) => Promise<boolean>;
+  signup: (name: string, email: string, password: string) => Promise<boolean>;
   logout: () => void;
 }
 
@@ -21,10 +22,12 @@ const AuthContext = createContext<AuthContextType | null>(null);
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(getCurrentUser());
 
-  const login = (email: string, password: string) => {
+  const login = async (email: string, password: string) => {
     const users = getUsers();
+    const hashedPassword = await hashPassword(password);
+
     const found = users.find(
-      (u) => u.email === email && u.password === password
+      (u) => u.email === email && u.password === hashedPassword
     );
 
     if (!found) return false;
@@ -34,13 +37,19 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     return true;
   };
 
-  const signup = (email: string, password: string) => {
+  const signup = async (name: string, email: string, password: string) => {
     const users = getUsers();
-
     const exists = users.some((u) => u.email === email);
     if (exists) return false;
 
-    const newUser = { email, password };
+    const hashedPassword = await hashPassword(password);
+
+    const newUser: User = {
+      name,
+      email,
+      password: hashedPassword,
+    };
+
     saveUsers([...users, newUser]);
     saveCurrentUser(newUser);
     setUser(newUser);

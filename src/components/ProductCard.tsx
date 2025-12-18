@@ -1,17 +1,31 @@
 import { Link } from "react-router-dom";
 import type { Product } from "../types/Product";
+import "../styles/products.css";
 
-interface ProductCardProps {
+interface Props {
   product: Product;
 }
 
-const ProductCard = ({ product }: ProductCardProps) => {
+const ProductCard = ({ product }: Props) => {
   return (
     <div className="product-card">
-      <img src={product.thumbnail} />
-      <h4>{product.title}</h4>
+      <Link to={`/product/${product.id}`} className="product-link">
+        <img
+          src={product.thumbnail}
+          alt={product.title}
+          className="product-thumb"
+        />
+      </Link>
+
+      <Link to={`/product/${product.id}`} className="product-link">
+        <h4>{product.title}</h4>
+      </Link>
+
       <p className="price">₹ {product.price}</p>
-      <Link to={`/product/${product.id}`}>View Details →</Link>
+
+      <Link to={`/product/${product.id}`} className="details-link">
+        View Details →
+      </Link>
     </div>
   );
 };

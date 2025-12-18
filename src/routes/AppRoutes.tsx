@@ -6,6 +6,8 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Checkout from "../pages/Checkout";
 import ProtectedRoute from "./ProtectedRoute";
+import OrderSuccess from "../pages/OrderSuccess";
+import Wishlist from "../pages/Wishlist";
 
 const AppRoutes = () => {
   return (
@@ -25,6 +27,10 @@ const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
+
+      <Route path="/order-success" element={<OrderSuccess />} />
+      <Route path="/wishlist" element={<Wishlist />} />
+
     </Routes>
   );
 };

@@ -24,8 +24,13 @@ const Home = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading products...</p>;
+    return (
+      <div className="loader-wrapper">
+        <div className="loader"></div>
+      </div>
+    );
   }
+
   return (
     <div className="container">
       <h2>Products</h2>

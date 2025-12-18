@@ -4,13 +4,14 @@ import { getProductById } from "../services/productService";
 import type { Product } from "../types/Product";
 import { useCart } from "../context/CartContext";
 import { useAuth } from "../context/AuthContext";
+import { useWishlist } from "../context/WishlistContext";
 import "../styles/products.css";
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
-
+  const { toggleWishlist, isInWishlist } = useWishlist();
 
   const [added, setAdded] = useState(false);
 
@@ -70,11 +71,9 @@ const ProductDetails = () => {
   return (
     <div className="container">
       <div className="product-details">
-        <img
-          src={product.thumbnail}
-          alt={product.title}
-          className="product-image"
-        />
+        <div className="product-image-wrapper">
+          <img src={product.thumbnail} alt={product.title} />
+        </div>
 
         <div>
           <h2>{product.title}</h2>
@@ -103,6 +102,19 @@ const ProductDetails = () => {
 
             <button onClick={handleBuyNow} className="btn-buy">
               Buy Now
+            </button>
+            <button
+              onClick={() => toggleWishlist(product)}
+              style={{
+                padding: "10px 14px",
+                borderRadius: "6px",
+                border: "1px solid #ddd",
+                background: isInWishlist(product.id) ? "#fee2e2" : "#fff",
+                color: "#ef4444",
+                cursor: "pointer",
+              }}
+            >
+              {isInWishlist(product.id) ? "♥ Wishlisted" : "♡ Add to Wishlist"}
             </button>
           </div>
         </div>
